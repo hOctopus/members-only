@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def show
+    User.find(params[:id])
+  end
+
   def new
     @user = User.new
   end
@@ -7,10 +11,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to new_user_path
+      redirect_to user
     else
-      render :new
+      flash.now[:error] = "Sign up failed."
+      render 'new'
     end
+  end
+
+  def destroy
   end
 
   private

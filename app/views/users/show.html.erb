@@ -1,0 +1,8 @@
+<% if logged_in? %>
+  <ul><%= current_user.name %></ul>
+  <ul><%= current_user.email %></ul>
+  <ul><%= link_to "Log out", logout_path, method: :delete %></ul>
+<% else %>
+  <ul><%= "You do not have permission to view that page. Please log in." %></ul>
+  <ul><%= link_to "Log in", login_path %></ul>
+<% end %>
