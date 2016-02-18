@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   delete  'logout'  => 'sessions#destroy'
 
   resources :users
-  resources :posts, only: [:new, :create, :destroy, :index]
+  resources :posts, only: [:new, :create, :index, :destroy]
 
   root 'posts#index'
 end
