@@ -1,0 +1,7 @@
+<%= form_for(@post) do |f| %>
+  <ul>
+    <%= f.label :content, value: "Post content:" %>
+    <%= f.text_field :content %>
+  </ul>
+  <ul><%= f.submit "Post" %></ul>
+<% end %>

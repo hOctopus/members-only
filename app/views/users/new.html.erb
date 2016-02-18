@@ -1,0 +1,23 @@
+<%= form_for(@user) do |f| %>
+  <ul>
+    <%= f.label :name, value: "User Name:" %>
+    <%= f.text_field :name %>
+  </ul>
+
+  <ul>
+    <%= f.label :email, value: "Email:" %>
+    <%= f.email_field :email %>
+  </ul>
+
+  <ul>
+    <%= f.label :password, value: "Password:" %>
+    <%= f.password_field :password %>
+  </ul>
+
+  <ul>
+    <%= f.label :password_confirmation, value: "Confirm password:" %>
+    <%= f.password_field :password_confirmation %>
+  </ul>
+
+  <ul><%= f.submit "Create User" %></ul>
+<% end %>

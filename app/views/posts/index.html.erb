@@ -1,0 +1,12 @@
+<% if logged_in? %>
+  <ul><%= @posts.count %> post(s) by this user.</ul>
+  <% @posts.each do |post| %>
+    <ul>Posted by: <%= post.user.name %></ul>
+    <ul><%= post.content %></ul></br>
+  <% end %>
+  <ul><%= link_to "Back to user page", current_user %></ul>
+  <ul><%= link_to "Log out", logout_path, method: :delete %></ul>
+<% else %>
+  <ul><%= "You do not have permission to view this page. Please log in." %></ul>
+  <ul><%= link_to "Log in", login_path %></ul>
+<% end %>

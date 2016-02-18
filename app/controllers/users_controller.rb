@@ -11,14 +11,19 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user
+      flash[:success] = "Sign up successful!"
+      session[:user_id] = @user.id
+      redirect_to @user
     else
-      flash.now[:error] = "Sign up failed."
-      render 'new'
+      flash[:error] = "Sign up failed."
+      redirect_to new_user_path
     end
   end
 
   def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted!"
+    redirect_to login_url
   end
 
   private
